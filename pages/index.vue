@@ -1,5 +1,6 @@
 <template>
     <section class="section">
+        hi
     </section>
 </template>
 

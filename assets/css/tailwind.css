@@ -1,0 +1,356 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+[disabled="disabled"] {
+    opacity: .6;
+    filter: grayscale(80%);
+    cursor: disabled;
+}
+
+.dragger {
+    cursor: move;
+}
+
+.transition {
+    transition: all .3s ease-in-out;
+}
+
+.sortable-ghost {
+    opacity: 0;
+}
+
+.fade-transition {
+    transition: opacity 0.2s ease;
+}
+
+.fade-enter,
+.fade-leave {
+    opacity: 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity .3s;
+}
+
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+}
+
+.fa {
+    @apply mr-2;
+}
+
+.icon .fa {
+    @apply mr-0;
+}
+
+a {
+    @apply no-underline;
+    transition: all .3s ease-in-out;
+}
+
+html {
+    font-size: 14px;
+}
+
+@screen md {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+body {
+    @apply font-sans text-base text-gray-600 antialiased bg-gray-300 font-normal;
+    letter-spacing: 0;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+strong {
+    @apply font-bold;
+}
+
+.form-row:not(.setting) {
+    @apply mb-4 pb-4;
+}
+
+.form-row:not(.setting):last-child {
+    @apply mb-0 pb-0;
+}
+
+label {
+    @apply relative block mb-2;
+}
+
+label .error {
+    @apply absolute right-0 text-base;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.select-wrapper {
+    z-index: 1;
+    @apply relative bg-white;
+}
+
+.select-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5rem;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid #51626f;
+    z-index: 1;
+}
+
+.select {
+    height: 50px;
+    line-height: 50px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease-out;
+    @apply appearance-none rounded-sm border w-full px-6 bg-white shadow;
+    -webkit-appearance: none;
+}
+
+.input,
+.textarea {
+    height: 50px;
+    line-height: 50px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease-out;
+    @apply appearance-none rounded-sm border mb-2 w-full px-4 bg-white shadow;
+}
+
+.input[disabled],
+.textarea[disabled] {
+    @apply bg-gray-300 text-gray-500;
+}
+
+.textarea {
+    height: 140px;
+    @apply p-4;
+    line-height: 1.5;
+    resize: none;
+}
+
+.help {
+    @apply block text-gray-500 text-sm;
+}
+
+.error {
+    @apply text-red-500;
+}
+
+.input-error,
+.input-error:focus {
+    @apply border-red-500;
+}
+
+button {
+    @apply font-semibold;
+    color: inherit;
+    transition: all .3s ease-in-out;
+}
+
+.btn {
+    @apply inline-block rounded-sm px-8 py-4;
+}
+
+.btn-lg {
+    @apply inline-block rounded px-10 py-6 text-lg;
+}
+
+.btn:hover {
+    @apply shadow;
+}
+
+a:not(class) {
+    @apply text-blue-500;
+}
+
+.dropdown-trigger {
+    position: relative;
+}
+
+.dropdown-trigger .dropdown-select {
+    display: none;
+}
+
+.dropdown-trigger:hover .dropdown-select {
+    text-align: left;
+    display: block;
+}
+
+
+.dropdown-select {
+    @apply absolute bg-white right-0 w-full rounded-sm shadow-md;
+    top: 100%;
+    width: 180px;
+    z-index: 1000;
+}
+
+.dropdown-select a {
+    @apply block py-2 px-3 text-gray-500 text-sm;
+}
+
+.dropdown-select a.selected {
+    @apply text-gray-700;
+}
+
+.dropdown-select a:hover {
+    @apply bg-blue-300 text-gray-700;
+}
+
+.resource-list {
+    @apply bg-white rounded-sm;
+}
+
+.pill {
+    @apply inline-block text-xs bg-gray-500 px-3 py-1 rounded text-white uppercase border border-transparent;
+}
+
+.pill.pending {
+    @apply bg-white border-gray-300 border-t-0 text-gray-500;
+}
+
+.pill.scope {
+    @apply bg-white border-gray-300 text-gray-500;
+}
+
+.pill.closed,
+.pill.expired {
+    @apply bg-red-500;
+}
+
+.pill.sent {
+    @apply bg-orange-300;
+}
+
+.pill.live,
+.pill.open,
+.pill.complete,
+.pill.active {
+    @apply bg-green-500;
+}
+
+.form-row .help {
+    @apply block mb-4;
+}
+
+.setting {
+    @apply p-8 border-b border-gray-300;
+}
+
+.option {
+    @apply text-gray-800
+}
+
+.modal {
+    @apply fixed top-0 bg-black pt-12;
+    opacity: .9;
+    z-index: 1150;
+    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
+    outline: 0;
+}
+
+.modal.modal-lg .modal-dialog {
+    max-width: 1000px;
+}
+
+.modal-dialog {
+    @apply mx-auto w-full;
+    max-width: 760px;
+}
+
+.modal-content {
+    @apply relative;
+}
+
+.modal-content form .form-row-submit {
+    @apply text-right w-full;
+}
+
+.modal-header {
+    @apply relative py-6 px-8 bg-white border-b border-gray-300;
+}
+
+.modal-footer {
+    @apply relative py-6 px-8 bg-white;
+}
+
+.modal-title {
+    @apply text-xl text-gray-700;
+}
+
+.modal-close {
+    @apply absolute text-gray-800 right-0 text-2xl pr-8;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal-body {
+    @apply relative bg-white;
+}
+
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: config('colors.blue') transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spinner {
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.org-logo {
+    max-width: 320px;
+    @apply block mx-auto;
+}

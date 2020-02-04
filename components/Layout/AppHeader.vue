@@ -27,7 +27,7 @@
 </script>
 <style>
     .app-header h1 {
-        /* @apply font-normal text-2xl text-gray-900; */
+        @apply font-normal text-2xl text-gray-900;
         letter-spacing: 0px;
     }
 
@@ -38,7 +38,7 @@
     }
 
     .app-header h1 .fa {
-        /* @apply relative text-blue-500 text-base; */
+        @apply relative text-blue-500 text-base;
         top: -5px;
     }
 
@@ -47,6 +47,6 @@
     }
 
     .app-header .nuxt-link-active {
-        /* @apply border-blue-500; */
+        @apply border-blue-500;
     }
 </style>

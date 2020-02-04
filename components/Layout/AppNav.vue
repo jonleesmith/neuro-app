@@ -1,60 +1,71 @@
 <template>
-	<nav role="navigation" aria-label="Main Navigation">
-		<div class="">
-			<template v-if="authenticated">
-				<div>
-                    <div>
-                        <nuxt-link :to="{ name: 'index' }" class="dashboard">
-                            <i class="fa fa-home"></i><span>Dashboard</span>
-                        </nuxt-link>
-                    </div>
-                    <p class="heading">Content</p>
-                    <!-- <div>
-                        <nuxt-link :to="{ name: 'entries' }">
-                            <i class="fa fa-database"></i><span>All Entries</span>
-                        </nuxt-link>
-                    </div> -->
-                    <p class="heading">Settings</p>
-                    <div>
-                        <nuxt-link :to="{ name: 'collections' }">
-                            <i class="fa fa-copy"></i><span>Collections</span>
-                        </nuxt-link>
-                    </div>
-                    <!--
-                    <div>
-                        <nuxt-link :to="{ name: 'fields' }">
-                            <i class="fa fa-database"></i><span>Fields</span>
-                        </nuxt-link>
-                    </div>
-                    <div>
-                        <nuxt-link :to="{ name: 'fieldsets' }">
-                            <i class="fa fa-database"></i><span>Fieldsets</span>
-                        </nuxt-link>
-                    </div>
-                    <p class="heading">System</p>
-                    <div>
-                        <nuxt-link :to="{ name: 'sites' }">
-                            <i class="fa fa-sitemap"></i><span>Sites</span>
-                        </nuxt-link>
-                    </div>
-                    <div>
-                        <nuxt-link :to="{ name: 'users' }">
-                            <i class="fa fa-sitemap"></i><span>Users</span>
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link v-if="!user.is('user')" :to="{ name: 'orgs-id-settings', params: { id: user.org.id } }" class="settings">
-                        <i class="fa fa-cog"></i><span>{{ user.org.name }}</span>
-                    </nuxt-link>
-                    <nuxt-link :to="{ name: 'myaccount' }">
-                        <i class="fa fa-user-circle"></i><span>{{ user.name || user.username }}</span>
-                    </nuxt-link>
-                    <nuxt-link :to="{ name: 'auth-logout' }">
-                        <i class="fa fa-sign-out-alt"></i><span>Logout</span>
-                    </nuxt-link>-->
-				</div>
-			</template>
-		</div>
-	</nav>
+    <div>
+        <div class="flex items-center">
+            <button class="mr-2"><i class="fa fa-bars text-sm"></i></button>
+            <p class="text-3xl text-gray-darkest lowercase font-bold">
+                Neuro
+            </p>
+        </div>
+
+        <div>
+            <nav class="bg-gray-800" role="navigation" aria-label="Main Navigation">
+                <div class="">
+                    <template>
+                        <div>
+                            <div>
+                                <nuxt-link :to="{ name: 'index' }" class="dashboard">
+                                    <i class="fa fa-home"></i><span>Dashboard</span>
+                                </nuxt-link>
+                            </div>
+                            <p class="heading">Content</p>
+                            <div>
+                                <nuxt-link :to="{ name: 'entries' }">
+                                    <i class="fa fa-database"></i><span>All Entries</span>
+                                </nuxt-link>
+                            </div>
+                            <p class="heading">Settings</p>
+                            <div>
+                                <nuxt-link :to="{ name: 'collections' }">
+                                    <i class="fa fa-copy"></i><span>Collections</span>
+                                </nuxt-link>
+                            </div>
+                            <!--
+                            <div>
+                                <nuxt-link :to="{ name: 'fields' }">
+                                    <i class="fa fa-database"></i><span>Fields</span>
+                                </nuxt-link>
+                            </div>
+                            <div>
+                                <nuxt-link :to="{ name: 'fieldsets' }">
+                                    <i class="fa fa-database"></i><span>Fieldsets</span>
+                                </nuxt-link>
+                            </div>
+                            <p class="heading">System</p>
+                            <div>
+                                <nuxt-link :to="{ name: 'sites' }">
+                                    <i class="fa fa-sitemap"></i><span>Sites</span>
+                                </nuxt-link>
+                            </div>
+                            <div>
+                                <nuxt-link :to="{ name: 'users' }">
+                                    <i class="fa fa-sitemap"></i><span>Users</span>
+                                </nuxt-link>
+                            </div>
+                            <nuxt-link v-if="!user.is('user')" :to="{ name: 'orgs-id-settings', params: { id: user.org.id } }" class="settings">
+                                <i class="fa fa-cog"></i><span>{{ user.org.name }}</span>
+                            </nuxt-link>
+                            <nuxt-link :to="{ name: 'myaccount' }">
+                                <i class="fa fa-user-circle"></i><span>{{ user.name || user.username }}</span>
+                            </nuxt-link>
+                            <nuxt-link :to="{ name: 'auth-logout' }">
+                                <i class="fa fa-sign-out-alt"></i><span>Logout</span>
+                            </nuxt-link>-->
+                        </div>
+                    </template>
+                </div>
+            </nav>
+        </div>
+    </div>
 </template>
 
 <script>

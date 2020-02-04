@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import AppHeader from '~/components/Layout/AppHeader'
 import AppModal from '~/components/Layout/AppModal'
@@ -17,13 +17,12 @@ const Globals = {
 	{
 		Vue.mixin({
 			computed: {
-                ...mapGetters({
+                ...mapState({
                     sites: 'getSites',
-                    site: 'getSite'
-                }),
-                appUrl()  {
-                    return process.env.appUrl
-                }
+                    site: 'getSite',
+                    authenticated: 'auth/loggedIn',
+                    user: 'auth/user',
+                })
 			}
 		})
 	}

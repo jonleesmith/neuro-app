@@ -1,6 +1,6 @@
 <template>
 	<form method="post" action="#" @submit.prevent="submit">
-        <div class="mb-8 p-6 bg-red-lightest text-red-darker" v-if="errors.has('message')">{{ errors.get('message') }}</div>
+        <div class="mb-8 p-6 bg-red-300 text-red-600" v-if="errors.has('message')">{{ errors.get('message') }}</div>
 		<div class="form-row">
 			<label for="email" class="label">Email</label>
 			<input
@@ -8,7 +8,7 @@
 				class="input"
 				autofocus=""
                 autocomplete="email"
-                :class="{ 'border-red': errors.has('email') }"
+                :class="{ 'border-red-500': errors.has('email') }"
 				v-model="form.email">
 			<p class="help error" v-if="errors.has('email')">{{ errors.get('email') }}</p>
 		</div>
@@ -19,13 +19,13 @@
 				type="password"
 				class="input"
                 autocomplete="password"
-				:class="{ 'border-red': errors.has('password') }"
+				:class="{ 'border-red-500': errors.has('password') }"
 				v-model="form.password">
 			<p class="help error" v-if="errors.has('password')">{{ errors.get('password') }}</p>
 		</div>
 
 		<div class="form-row text-right">
-              <button class="btn bg-blue text-white hover:bg-blue-dark w-full">
+              <button class="btn bg-blue-500 text-white hover:bg-blue-700 w-full">
                 <span v-if="busy">Please wait...</span>
                 <span v-else>Login</span>
             </button>
@@ -71,7 +71,7 @@
 		}
 	}
 </script>
-<style lang="scss">
+<style>
     form {
         width: 500px;
     }
