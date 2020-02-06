@@ -7,11 +7,11 @@ export default class Model {
         return {};
     }
 
-    static namespace(method) {
-        return `neuro/${this.element}/${method}`
+    namespace(method) {
+        return `neuro/collections/${method}`
     }
 
-    static store() {
+    store() {
         return Container.factory.$store
     }
 
@@ -23,7 +23,7 @@ export default class Model {
         return this.models()[element]
     }
 
-    static getters(method) {
+    getters(method) {
         return this.store().getters[this.namespace(method)];
     }
 
@@ -47,7 +47,7 @@ export default class Model {
     /**
      * Get all records.
      */
-    static all() {
+    all() {
         return this.getters('all')();
     }
 

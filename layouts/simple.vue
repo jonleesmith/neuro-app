@@ -1,8 +1,11 @@
 <template>
-    <div class="simple">
-        <h1 class="text-4xl font-normal mb-10 flex items-center">
-            <span class="pl-2">Neuro</span>
-        </h1>
+    <div class="simple bg-gray-900">
+        <div class="mb-12 text-center">
+            <h1 class="text-5xl font-normal text-gray-200 flex items-center">
+                <span class="pl-2">Welcome to Neuro</span>
+            </h1>
+            <p class="text-xl text-gray-500">Log in to your account.</p>
+        </div>
         <nuxt />
     </div>
 </template>

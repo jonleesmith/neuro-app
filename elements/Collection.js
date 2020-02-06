@@ -5,4 +5,12 @@ export default class Collection extends Model {
 
     static element = 'collections'
 
+    // getElementActions() {
+    //     return []
+    // }
+
+    // all() {
+    //     return []
+    // }
+
 }

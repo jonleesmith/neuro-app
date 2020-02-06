@@ -59,16 +59,20 @@ html {
 
 @screen md {
     html {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 
 
 body {
-    @apply font-sans text-base text-gray-600 antialiased bg-gray-300 font-normal;
+    @apply font-sans text-base text-gray-600 antialiased bg-gray-800 font-normal;
     letter-spacing: 0;
     line-height: 1.5;
     overflow-x: hidden;
+}
+
+h1 {
+    @apply text-3xl font-medium text-gray-800;
 }
 
 strong {
@@ -84,7 +88,7 @@ strong {
 }
 
 label {
-    @apply relative block mb-2;
+    @apply text-gray-700 font-medium relative block mb-2;
 }
 
 label .error {
@@ -156,13 +160,13 @@ label .error {
 }
 
 button {
-    @apply font-semibold;
+    @apply font-medium;
     color: inherit;
     transition: all .3s ease-in-out;
 }
 
 .btn {
-    @apply inline-block rounded-sm px-8 py-4;
+    @apply inline-block rounded-sm px-4 py-2;
 }
 
 .btn-lg {

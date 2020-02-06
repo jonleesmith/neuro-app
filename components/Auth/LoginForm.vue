@@ -8,9 +8,9 @@
 				class="input"
 				autofocus=""
                 autocomplete="email"
-                :class="{ 'border-red-500': errors.has('email') }"
+                :class="{ 'border-red-500': errors.has('uid') }"
 				v-model="form.email">
-			<p class="help error" v-if="errors.has('email')">{{ errors.get('email') }}</p>
+			<p class="help error" v-if="errors.has('uid')">{{ errors.get('uid') }}</p>
 		</div>
 
 		<div class="form-row">
@@ -25,14 +25,14 @@
 		</div>
 
 		<div class="form-row text-right">
-              <button class="btn bg-blue-500 text-white hover:bg-blue-700 w-full">
+              <button class="btn bg-primary text-white hover:bg-green-700 w-full">
                 <span v-if="busy">Please wait...</span>
                 <span v-else>Login</span>
             </button>
         </div>
 
         <div class="text-center">
-            <nuxt-link class="border-b border-blue hover:border-transparent hover:shadow" :to="{ name: 'auth-forgot-password' }">
+            <nuxt-link class="border-b border-gray-400 hover:border-green-500" :to="{ name: 'auth-forgot-password' }">
                 Forgot password?
             </nuxt-link>
         </div>
@@ -73,6 +73,7 @@
 </script>
 <style>
     form {
-        width: 500px;
+        @apply w-full bg-white p-12;
+        max-width: 530px;
     }
 </style>

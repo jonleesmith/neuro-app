@@ -1,16 +1,14 @@
 <template>
-	<header class="app-header py-2 bg-white clearfix text-center shadow">
-		<div class="flex px-8">
+	<header class="app-header bg-white clearfix flex text-center shadow h-16">
+		<div class="flex">
             <div class="flex items-center">
-                <button class="mr-2"><i class="fa fa-bars text-sm"></i></button>
-                <p class="text-3xl text-gray-darkest lowercase font-bold">
+                <p class="text-2xl text-gray-800 lowercase font-medium">
                    Neuro
                 </p>
             </div>
             <div>
                 <!-- {{ sites.length }} -->
             </div>
-
         </div>
 	</header>
 </template>
@@ -27,8 +25,9 @@
 </script>
 <style>
     .app-header h1 {
-        @apply font-normal text-2xl text-gray-900;
+        @apply font-normal text-xl text-gray-900;
         letter-spacing: 0px;
+        height: 100px;
     }
 
     @screen md {

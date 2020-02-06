@@ -8,6 +8,13 @@ module.exports = {
   theme: {
       fontFamily: {
           sans: ['Rubik'],
+      },
+      extend: {
+          colors: {
+              primary: '#4fc08d',
+              'gray-800': '#2b2f3e',
+              'gray-900': '#21242f',
+          }
       }
   },
   variants: {},

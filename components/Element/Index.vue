@@ -6,21 +6,21 @@
 
         {{ items }}
 
-        <NeuroFilterBar :controller="controller">
-        </NeuroFilterBar>
+        <!-- <NeuroFilterBar :controller="controller">
+        </NeuroFilterBar> -->
 
-        <NeuroActionBar :selected="selectedElements"
+        <!-- <NeuroActionBar :selected="selectedElements"
             :controller="controller"
             :element-actions="elementActions"
             @clear-selected="selectedElements = []">
-        </NeuroActionBar>
+        </NeuroActionBar> -->
 
-        <template v-if="!loading">
+        <template>
 
             <component :is="`NeurotableView`"
                 :selected="selectedElements"
                 :controller="controller"
-                :elements="controller.all()"
+                :elements="items"
                 :user="user"
                 @view-element="viewElement"></component>
 
@@ -32,8 +32,8 @@
 
 <script>
 
-    import NeuroActionBar from '~/components/Element/ActionBar.vue'
-    import NeuroFilterBar from '~/components/Element/FilterBar.vue'
+    // import NeuroActionBar from '~/components/Element/ActionBar.vue'
+    // import NeuroFilterBar from '~/components/Element/FilterBar.vue'
     import NeurotableView from '~/components/Element/View/Table.vue'
 
     export default {
@@ -43,8 +43,8 @@
         props: ['controller'],
 
         components: {
-            NeuroActionBar,
-            NeuroFilterBar,
+            // NeuroActionBar,
+            // NeuroFilterBar,
             NeurotableView,
         },
 
@@ -59,6 +59,7 @@
 
         mounted() {
             this.items = this.controller.all()
+            console.log(new this.controller)
         },
 
         watch: {

@@ -1,16 +1,13 @@
 <template>
-	<section class="section pl-8 pr-12">
-        <div class="flex mb-6 items-center">
-            <h1 class="flex-1">Collections</h1>
-            <a href="http://statamic-starter.test/cp/collections/create" class="btn bg-primary text-white">Create Collection</a>
-        </div>
+	<section class="section">
+        <!-- <Editor></Editor> -->
 		<ElementIndex :controller="collection"></ElementIndex>
 	</section>
 </template>
 <script>
 
     import ElementIndex from '~/components/Element/Index'
-    // import CollectionsController from '~/controllers/Collections'
+    import CollectionsController from '~/controllers/Collections'
     import Editor from '~/components/Tools/Editor'
 
     import Collection from '@/elements/Collection'
@@ -29,13 +26,13 @@
 		data() {
 			return {
                 showToolbar: true,
-                // controller: new Collection
+                controller: new Collection
 			}
 		},
         methods: {},
         computed: {
             collection() {
-                return new Collection
+                return Collection
             }
         }
 	}
