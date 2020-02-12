@@ -8,8 +8,8 @@ export default class Controller {
 		let context 		= vue.$route.name.split('.').pop() || 'index';
 
 		this.vue 			= vue;
-		this.site 			= vue.$store.state.site;
-		this.api 			= `/sites/${this.site.id}`;
+		this.project 		= vue.$store.state.project;
+		this.api 			= `${this.project.handle}`;
 
 		this.endpoint 		= this.constructor.name.toLowerCase();
 		this.element 		= vue.$forms.create(this.getModelAttributes());
@@ -42,7 +42,7 @@ export default class Controller {
 	}
 
 	getTableAttributes() {
-		return {}
+		return []
 	}
 
 	getActions(context) {
@@ -77,9 +77,9 @@ export default class Controller {
 		params = params || {};
 		this.vue.loading = true;
 		return new Promise(( resolve, reject ) => {
-			this.vue.$http.get(`${this.api}/${endpoint}`, { params: params }).then( (response) => {
+			this.vue.$axios.get(`${this.api}/${endpoint}`, { params: params }).then( (response) => {
 				resolve(response.data.items);
-				this.store.set(endpoint, response.data.items);
+				// this.store.set(endpoint, response.data.items);
 				this.vue.loading = false;
 			}).catch((error) => {
 				reject(error);
@@ -96,7 +96,7 @@ export default class Controller {
 
 		this.vue.loading = true;
 		return new Promise(( resolve, reject ) => {
-			this.vue.$http.get(`${this.api}/${endpoint}`, { params: params }).then( (response) => {
+			this.vue.$axios.get(`${this.api}/${endpoint}`, { params: params }).then( (response) => {
 				resolve(response.data.item);
 				this.vue.loading = false;
 			}).catch((error) => {
@@ -106,23 +106,31 @@ export default class Controller {
 		});
 	}
 
-	getElements(params)
+	async all(params)
 	{
 		params = params || {};
 
-		this.vue.loading = true;
+        this.vue.loading = true;
 
-		this.vue.$axios.get(`${this.api}/${this.endpoint}`, { params: params }).then((response) => {
-			this.elements = response.data.data;
-			// this.store.set(this.endpoint, response.data.items);
-			// this.vue.loading = false;
-		}).catch( (err) => {
-			// this.vue.$store.notifications.dispatch('addMessage', {
-			// 	type: 'error',
-			// 	message: 'Error fetching resource'
-			// });
-			this.vue.loading = false;
-		});
+
+        let response = await this.vue.$axios.get(`${this.api}/${this.endpoint}`, { params: params })
+
+        this.elements = response.data.data
+
+        return response.data.data
+
+		// this.vue.$axios.get(`${this.api}/${this.endpoint}`, { params: params }).then((response) => {
+        //     console.log(response.data.data)
+		// 	this.elements = response.data.data;
+		// 	// this.store.set(this.endpoint, response.data.items);
+		// 	// this.vue.loading = false;
+		// }).catch( (err) => {
+		// 	// this.vue.$store.notifications.dispatch('addMessage', {
+		// 	// 	type: 'error',
+		// 	// 	message: 'Error fetching resource'
+		// 	// });
+		// 	this.vue.loading = false;
+		// });
 	}
 
 	getElement(id)
@@ -146,16 +154,19 @@ export default class Controller {
 			return '<span class="null">-</span>';
 		}
 
-        if (attribute == 'status') {
+		if ( attribute == 'status' )
+		{
             return `<span class="pill ${element.status}">${element.status}</span>`
-        }
+		}
 
 		return element[attribute];
 	}
 
-	getElementActions()
+    getElementActions()
 	{
-		return [];
+		return [
+            { label: 'Delete', name: 'delete', }
+        ];
 	}
 
 	getFilters()
@@ -183,7 +194,7 @@ export default class Controller {
 		}
 
 		// return new Promise( ( resolve, reject ) => {
-			this.$http.post(`${this.api}/${this.endpoint}`, this.element.model)
+			this.$axios.post(`${this.api}/${this.endpoint}`, this.element.model)
 			.then(response => {
 				this.element.finishProcessing();
 				this.element.model = response.data.item;
@@ -205,7 +216,7 @@ export default class Controller {
 	updateElement()
 	{
 		this.element.startProcessing();
-		this.$http.put(`${this.api}/${this.endpoint}/${this.element.model.system.id}`, this.element.model)
+		this.$axios.put(`${this.api}/${this.endpoint}/${this.element.model.id}`, this.element.model)
 			.then(response => {
 				this.element.finishProcessing();
 				this.element.model = response.data.item;
@@ -224,7 +235,7 @@ export default class Controller {
 
 	deleteElement(element)
 	{
-		this.$http.delete(`${this.api}/${this.endpoint}/${element.system.id}`)
+		this.$axios.delete(`${this.api}/${this.endpoint}/${element.system.id}`)
 			.then(response => {
 				this.getElements();
 				this.action = 'index';
@@ -244,7 +255,7 @@ export default class Controller {
 	updateElementStatus(element, status)
 	{
 
-		this.$http.put(`${this.api}/${this.endpoint}/${element.system.id}`, { status })
+		this.$axios.put(`${this.api}/${this.endpoint}/${element.id}`, { status })
 			.then(response => {
 				this.getElements();
 				this.action = 'index';

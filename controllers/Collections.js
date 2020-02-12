@@ -3,37 +3,27 @@ import Controller from './Controller'
 
 export default class Collections extends Controller {
 
-	static get name() {
+	getName() {
 		return 'Collections';
 	}
 
-	static get icon() {
+	icon() {
 		return 'database';
 	}
 
-	static get model() {
+	model() {
 		return {
 			field: this.field()
 		}
 	}
 
-	static get elementActions() {
-		return [{
-			label: 'Status',
-			name: 'status',
-			options: [
-				{ label: 'Draft', 	 value: 0 },
-				{ label: 'Publish',  value: 1 },
-				{ label: 'Archive',  value: 2  }
-			],
-			handler: this.updateStatusSelected
-		},
-		{
-			label: 'Delete',
-			name: 'delete',
-			handler: this.deleteSelected,
-            options: []
-		}]
+    getElementActions() {
+		return []
+	}
+
+	getAttributeHtml(attribute, element)
+	{
+		return super.getAttributeHtml(attribute, element)
 	}
 
 	updateStatus()
@@ -84,20 +74,21 @@ export default class Collections extends Controller {
 
 		return [
 			{
-				label : 'Name',
-				field: 'name'
+				name : 'Name',
+				handle: 'name',
+				template: true,
 			},
 			{
-				label: 'ID',
-				field: 'uid'
+				name: 'ID',
+				handle: 'handle'
 			},
             {
-                label : 'Status',
-                field: 'status'
+                name : 'Status',
+                handle: 'status'
             },
 			{
-				label : 'Created',
-				field: 'created_at'
+				name : 'Created',
+				handle: 'created_at'
 			}
 		];
 

@@ -1,24 +1,22 @@
 
-import ElementFactory from '~/neuro/ElementFactory'
-import Neuro from '~/neuro/Neuro'
-import User from '~/elements/User'
-import Collection from '~/elements/Collection'
+// import ElementFactory from '~/neuro/ElementFactory'
+// import Neuro from '~/neuro/Neuro'
+// import User from '~/elements/User'
+// import Collection from '~/elements/Collection'
 
-const db = new ElementFactory()
-db.register(Collection, {})
-db.register(User, {})
-
-export const plugins = [
-    Neuro(db),
-]
+// export const plugins = [
+//     Neuro(db),
+// ]
 
 export const state = () => ({
 	errors: null,
     appUrl: '',
-    site: {
-        id: 1
+    project: {
+        id: 1,
+        name: 'l8r',
+        handle: 'later',
     },
-    sites: []
+    projects: []
 })
 
 export const getters = {

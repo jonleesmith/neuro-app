@@ -54,25 +54,19 @@ a {
 }
 
 html {
-    font-size: 14px;
-}
-
-@screen md {
-    html {
-        font-size: 15px;
-    }
+    font-size: 16px;
 }
 
 
 body {
-    @apply font-sans text-base text-gray-600 antialiased bg-gray-800 font-normal;
+    @apply font-sans text-base text-gray-700 antialiased bg-gray-200 font-normal;
     letter-spacing: 0;
     line-height: 1.5;
     overflow-x: hidden;
 }
 
 h1 {
-    @apply text-3xl font-medium text-gray-800;
+    @apply text-2xl font-medium text-gray-800;
 }
 
 strong {
@@ -88,7 +82,7 @@ strong {
 }
 
 label {
-    @apply text-gray-700 font-medium relative block mb-2;
+    @apply text-gray-700 relative block mb-2;
 }
 
 label .error {
@@ -166,7 +160,7 @@ button {
 }
 
 .btn {
-    @apply inline-block rounded-sm px-4 py-2;
+    @apply inline-block rounded px-4 py-2;
 }
 
 .btn-lg {

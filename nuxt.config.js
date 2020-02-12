@@ -15,7 +15,8 @@ export default {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rubik:400,500,700' }
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rubik:400,500,700' },
+            { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' },
         ]
     },
 
@@ -96,7 +97,7 @@ export default {
     ** See https://axios.nuxtjs.org/options
     */
     axios: {
-        baseURL: 'http://localhost:3000'
+        baseURL: 'http://localhost:3002'
     },
 
     /*

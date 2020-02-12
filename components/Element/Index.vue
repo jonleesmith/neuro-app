@@ -1,28 +1,28 @@
 <template>
 
-    <div class="controller-view bg-white shadow">
+    <div class="controller-view bg-white shadow rounded">
 
         <slot name="element-index-top"></slot>
 
-        {{ items }}
+        <NeuroFilterBar :controller="controller" v-if="search">
+        </NeuroFilterBar>
 
-        <!-- <NeuroFilterBar :controller="controller">
-        </NeuroFilterBar> -->
-
-        <!-- <NeuroActionBar :selected="selectedElements"
+        <NeuroActionBar :selected="selectedElements"
             :controller="controller"
-            :element-actions="elementActions"
+            :element-actions="controller.elementActions"
             @clear-selected="selectedElements = []">
-        </NeuroActionBar> -->
+        </NeuroActionBar>
 
         <template>
 
-            <component :is="`NeurotableView`"
+            <component :is="`NeuroTable`"
                 :selected="selectedElements"
                 :controller="controller"
                 :elements="items"
                 :user="user"
-                @view-element="viewElement"></component>
+                @view-element="viewElement">
+                <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope"><slot :name="slot" v-bind="scope"/></template>
+                </component>
 
         </template>
 
@@ -32,20 +32,20 @@
 
 <script>
 
-    // import NeuroActionBar from '~/components/Element/ActionBar.vue'
-    // import NeuroFilterBar from '~/components/Element/FilterBar.vue'
-    import NeurotableView from '~/components/Element/View/Table.vue'
+    import NeuroActionBar from '~/components/Element/ActionBar.vue'
+    import NeuroFilterBar from '~/components/Element/FilterBar.vue'
+    import NeuroTable from '~/components/Element/Table.vue'
 
     export default {
 
         name: 'element-index',
 
-        props: ['controller'],
+        props: ['controller', 'search'],
 
         components: {
-            // NeuroActionBar,
-            // NeuroFilterBar,
-            NeurotableView,
+            NeuroActionBar,
+            NeuroFilterBar,
+            NeuroTable,
         },
 
         data() {
@@ -58,8 +58,10 @@
         },
 
         mounted() {
-            this.items = this.controller.all()
-            console.log(new this.controller)
+            this.controller.all()
+                .then(items => {
+                    this.items = items
+                })
         },
 
         watch: {

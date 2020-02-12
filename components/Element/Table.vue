@@ -1,8 +1,6 @@
 <template>
-
     <div class="table-view">
-
-        <!-- <div class="element-data" v-if="elements.length > 0">
+        <div class="element-data" v-if="elements.length > 0">
             <table class="table table-hover table-header">
                 <thead>
                     <tr>
@@ -13,8 +11,8 @@
                             </a>
                         </th>
                         <th v-for="(attribute, index) in attributes"
-                            :class="{ [attribute.field] : attribute.field, 'first' : (index === 0) }">
-                            {{ attribute.label }}
+                            :class="[attribute.handle, { 'first' : ( index === 0 ) }]" :key="index">
+                            {{ attribute.name }}
                         </th>
                     </tr>
                 </thead>
@@ -26,8 +24,11 @@
                                 <i class="fa fa-square" v-else></i>
                             </a>
                         </td>
-                        <td :class="{ [attribute.field] : attribute.field, 'first' : (index === 0) }" v-for="(attribute, index) in attributes" @click="viewElement(item)">
-                            <div v-html="getAttributeHtml(attribute.field, item)"></div>
+                        <td :class="[attribute.handle, { 'first' : (index === 0) }]"
+                        v-for="(attribute, index) in attributes" :key="index">
+                            <slot :name="attribute.handle" :element="item" :attribute="attribute">
+                                <div v-html="getAttributeHtml(attribute.handle, item)"></div>
+                            </slot>
                         </td>
                     </tr>
                 </tbody>
@@ -37,7 +38,7 @@
         </div>
         <div class="none-found" v-else>
             <p>No {{ controller.getName() }} found.</p>
-        </div> -->
+        </div>
 
     </div>
 
@@ -54,7 +55,7 @@
                 default: () => []
             },
             controller: {
-                type: Function,
+                type: Object,
                 required: true
             },
             elements: {
@@ -64,11 +65,6 @@
         },
 
         methods: {
-
-            viewElement(item)
-            {
-                this.$emit('view-element', item);
-            },
 
             toggleChecked(item)
             {
@@ -155,30 +151,28 @@
     > tr {
         > th,
         > td {
-            // @apply py-4 border-b border-gray-300;
-            @apply py-4 border-b;
+            @apply py-4 border-b border-gray-200;
             line-height: 1;
             vertical-align: middle;
-            // border-top: $border-light;
+
+                &:first-child {
+                    @apply pl-6;
+                }
 
                 &.action {
                     width: 20px;
-                    @apply pl-6 pr-6;
-
-                    .fa {
-                        @apply mr-0;
-                    }
+                    @apply pr-6;
                 }
             }
         }
     }
 
     tr.selected td {
-        // @apply bg-gray-300;
+        @apply bg-gray-100;
     }
 
     > thead > tr > th {
-        // @apply bg-gray-300 border-b text-gray-900 uppercase text-sm font-bold;
+        @apply border-b border-t text-gray-800 uppercase text-sm font-normal bg-gray-100;
         letter-spacing: 2px;
     }
 
@@ -191,14 +185,14 @@ th {
 
     a {
       display: inline-block;
-    //   @apply inline-block text-gray-300;
+      @apply inline-block text-gray-300;
 
       &:hover {
-        // @apply text-gray-500;
+        @apply text-gray-500;
       }
 
       &.checked {
-        // @apply text-gray-800;
+        @apply text-gray-800;
       }
     }
   }

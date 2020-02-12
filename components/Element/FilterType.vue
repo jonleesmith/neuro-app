@@ -9,7 +9,7 @@
         </a>
         <ul class="dropdown-select absolute right-0">
             <li><a href="#" @click.prevent="resetFilter">All</a></li>
-            <li v-for="option in filter.options" :key="option" :class="{ 'selected': activeFilter.value === option.value }">
+            <li v-for="(option, key) in filter.options" :key="key" :class="{ 'selected': activeFilter.value === option.value }">
                 <a href="#" @click.prevent="setFilter(filter, option)">
                     {{ option.label }}
                 </a>
@@ -46,7 +46,7 @@
                 items.forEach( (item, key) => {
 
                     options.push({
-                        value: item.system.id,
+                        value: item.id,
                         label: item.name
                     });
 
@@ -60,19 +60,19 @@
             {
                 this.active[this.filter.field] = {};
                 this.controller.params = {};
-                // this.$router.push({
-                //  name: `${this.controller.endpoint}`
-                // });
+                this.$router.push({
+                    name: `${this.controller.endpoint}`,
+                });
             },
 
             setFilter(filter, option)
             {
                 this.active[this.filter.field] = option;
                 this.controller.params = { [filter.field] : option.value };
-                // this.$router.push({
-                //  name: `${this.controller.endpoint}`,
-                //  query: { [filter.field] : option.value }
-                // });
+                this.$router.push({
+                    name: `${this.controller.endpoint}`,
+                    query: { [filter.field] : option.value }
+                });
             }
 
         },

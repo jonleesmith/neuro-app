@@ -1,7 +1,7 @@
 
 import Controller from './Controller'
 
-export default class Users extends Controller {
+export default class User extends Controller {
 
 	getName() {
 		return 'Users';

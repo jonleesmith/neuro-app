@@ -3,7 +3,7 @@
 
     <div class="action-bar">
 
-        <div class="actions flex py-3 px-6 bg-grey-light border-t border-b border-grey-lighter" v-show="selected.length > 0">
+        <div class="actions flex py-3 px-6 border-t border-gray-200" v-show="selected.length > 0">
 
             <span class="total">
                 {{ selected.length }} {{ (selected.length === 1) ? 'element' : 'elements' }} selected.
@@ -39,7 +39,7 @@
 
         props: {
 
-            controller: Function,
+            controller: Object,
 
             elementActions: {
                 type: Array,

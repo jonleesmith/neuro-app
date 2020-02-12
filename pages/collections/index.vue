@@ -1,19 +1,23 @@
 <template>
-	<section class="section pl-8 pr-12">
+	<section class="section">
         <div class="flex mb-6 items-center">
             <h1 class="flex-1">Collections</h1>
-            <a href="http://statamic-starter.test/cp/collections/create" class="btn bg-primary text-white">Create Collection</a>
+            <nuxt-link :to="{ query: { action: 'create' } }" class="btn bg-primary text-white">Create Collection</nuxt-link>
         </div>
-		<ElementIndex :controller="collection"></ElementIndex>
+		<ElementIndex :controller="collection" :actions="false" :search="false">
+            <div slot="name" slot-scope="{ element }">
+                <nuxt-link :to="{ name: 'collections-collection-entries', params: { collection: element.handle } }">
+                    {{ element.name }}
+                </nuxt-link>
+            </div>
+        </ElementIndex>
 	</section>
 </template>
 <script>
 
     import ElementIndex from '~/components/Element/Index'
-    // import CollectionsController from '~/controllers/Collections'
+    import Collections from '~/controllers/Collections'
     import Editor from '~/components/Tools/Editor'
-
-    import Collection from '@/elements/Collection'
 
     import { mapActions } from 'vuex'
 
@@ -32,10 +36,11 @@
                 // controller: new Collection
 			}
 		},
-        methods: {},
+        methods: {
+        },
         computed: {
             collection() {
-                return new Collection
+                return new Collections(this)
             }
         }
 	}

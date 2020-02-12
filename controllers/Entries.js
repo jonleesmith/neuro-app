@@ -2,7 +2,7 @@
 import Controller from './Controller'
 
 export default class Entries extends Controller {
-	
+
 	getName() {
 		return 'Entries';
 	}
@@ -55,7 +55,7 @@ export default class Entries extends Controller {
 		this.action = 'editElement';
 	}
 
-	getFilters() 
+	getFilters()
 	{
 		return [
 			{ label: 'Status', field: 'status', store: 'status' },
@@ -63,7 +63,7 @@ export default class Entries extends Controller {
 		];
 	}
 
-	updateFieldModel(entrytype) 
+	updateFieldModel(entrytype)
 	{
 		var fields = {};
 		var fieldModel = entrytype.fields;
@@ -82,22 +82,7 @@ export default class Entries extends Controller {
 	getTableAttributes(element) {
 
 		return [
-			{
-				label: 'Title',
-				field: 'field'
-			},
-			{
-				label: 'Author',
-				field: 'author.username'
-			},
-			{
-				label : 'Created',
-				field: 'createdAt'
-			},
-			{
-				label: 'Status',
-				field: 'status'
-			}
+		    { name: 'Name', handle: 'name' }	
 		];
 
 	}
@@ -106,7 +91,7 @@ export default class Entries extends Controller {
 	{
 
 		if ( context == 'edit' || context == 'create' ) { return [] }
-		
+
 		return [{
 			label: 'New Entry',
 			className: 'btn-primary',
