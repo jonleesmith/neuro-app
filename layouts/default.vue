@@ -1,13 +1,13 @@
 <template>
 	<div class="wrapper">
         <AppNotifications></AppNotifications>
-        <!-- <AppHeader class="px-10"></AppHeader> -->
-        <AppNav></AppNav>
-         <div class="app relative flex min-h-screen pt-8">
-            <div>
-
+        <AppHeader class="px-10"></AppHeader>
+        
+         <div class="app relative flex min-h-screen">
+            <div class="bg-gray-800 min-h-screen pt-8 w-64">
+                <AppNav></AppNav>
             </div>
-            <div class="app-content w-full container mx-auto">
+            <div class="app-content w-full pt-8 pl-12 pr-10">
                 <nuxt />
             </div>
         </div>
