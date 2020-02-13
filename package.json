@@ -17,9 +17,10 @@
   "dependencies": {
     "@nuxtjs/auth": "^4.8.5",
     "@nuxtjs/axios": "^5.3.6",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.10.2",
     "portal-vue": "^2.1.7",
-    "vue-editor-js": "^1.1.1"
+    "vue-editor-js": "^1.1.1",
+    "@nuxtjs/dotenv": "^1.4.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",

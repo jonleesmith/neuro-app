@@ -1,11 +1,6 @@
 <template>
-    <div class="flex min-h-screen">
-        <div
-            class="bg-gray-800 flex min-h-screen flex items-center justify-center flex-col lg:w-1/3"
-        ></div>
-        <div
-            class="text-center bg-gray-900 min-h-screen flex items-center w-2/3 flex-col pt-12"
-        >
+    <div class="flex flex-col min-h-screen justify-center items-center text-center bg-gray-800">
+        <div class="max-w-5xl w-full">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -16,7 +11,7 @@
                 stroke-width="0.75"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="feather feather-codesandbox w-24 h-24"
+                class="feather feather-codesandbox w-24 h-24 mx-auto"
             >
                 <path
                     d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
@@ -44,6 +39,9 @@ export default {
     middleware: "guest",
     components: {
         AppNotifications
+    },
+    mounted() {
+        console.log(process.env.API_URL)
     }
 };
 </script>
