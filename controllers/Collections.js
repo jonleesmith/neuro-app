@@ -82,10 +82,6 @@ export default class Collections extends Controller {
 				name: 'ID',
 				handle: 'handle'
 			},
-            {
-                name : 'Status',
-                handle: 'status'
-            },
 			{
 				name : 'Created',
 				handle: 'created_at'

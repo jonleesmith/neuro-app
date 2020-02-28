@@ -8,8 +8,8 @@ export default class Controller {
 		let context 		= vue.$route.name.split('.').pop() || 'index';
 
 		this.vue 			= vue;
-		this.project 		= vue.$store.state.project;
-		this.api 			= `${this.project.handle}`;
+		this.project 		= vue.project;
+		this.api 			= `${vue.project.handle}`;
 
 		this.endpoint 		= this.constructor.name.toLowerCase();
 		this.element 		= vue.$forms.create(this.getModelAttributes());
@@ -55,9 +55,9 @@ export default class Controller {
 
 	getStatuses() {
 		return [
-			{ label: 'Draft', 	  value: 0 },
-			{ label: 'Published', value: 1 },
-			{ label: 'Archived',  value: 2  }
+			{ label: 'Draft', 	  value: 'draft' },
+			{ label: 'Published', value: 'published' },
+			{ label: 'Archived',  value: 'archived'  }
 		]
 	}
 

@@ -5,10 +5,10 @@
         <div class="search w-1/3">
             <NeuroSearchBar></NeuroSearchBar>
         </div>
-        <div class="filters w-2/3 text-right flex items-center justify-end">
+        <div class="w-2/3 text-right flex items-center justify-end">
             <NeuroFilterType
-                class="px-1 bg-gray-200 text-gray-800 py-2 ml-8"
                 :key="key"
+                class="ml-3"
                 v-for="(filter, key) in controller.filters"
                 :controller="controller"
                 :filter="filter">

@@ -55,14 +55,6 @@ export default class Entries extends Controller {
 		this.action = 'editElement';
 	}
 
-	getFilters()
-	{
-		return [
-			{ label: 'Status', field: 'status', store: 'status' },
-			{ label: 'Entry type', field: 'entry_type_id', store: 'entrytypes' }
-		];
-	}
-
 	updateFieldModel(entrytype)
 	{
 		var fields = {};
@@ -82,7 +74,7 @@ export default class Entries extends Controller {
 	getTableAttributes(element) {
 
 		return [
-		    { name: 'Name', handle: 'name' }	
+		    { name: 'Name', handle: 'name' }
 		];
 
 	}

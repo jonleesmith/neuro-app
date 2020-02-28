@@ -145,25 +145,18 @@
     width: 100%;
     max-width: 100%;
 
-    // Cells
-    > thead,
-    > tbody {
-    > tr {
-        > th,
-        > td {
-            @apply py-4 border-b border-gray-200;
-            line-height: 1;
-            vertical-align: middle;
+    tr {
+        @apply border-t border-gray-200;
+    }
 
-                &:first-child {
-                    @apply pl-6;
-                }
+    td {
+        @apply px-6 py-4 whitespace-no-wrap border-b border-gray-200;
+        line-height: 1;
+        vertical-align: middle;
 
-                &.action {
-                    width: 20px;
-                    @apply pr-6;
-                }
-            }
+        &.action {
+            width: 20px;
+            @apply pr-6;
         }
     }
 
@@ -172,8 +165,7 @@
     }
 
     > thead > tr > th {
-        @apply border-b border-t text-gray-800 uppercase text-sm font-normal bg-gray-100;
-        letter-spacing: 2px;
+        @apply px-6 py-3 border-b border-gray-200 bg-gray-100 text-sm text-left font-normal text-gray-600 uppercase tracking-wider;
     }
 
 }

@@ -41,9 +41,8 @@ export default {
         './plugins/editor.js',
         './plugins/axios.js',
         './plugins/portals.js',
-        './plugins/mixins/user.js',
-        './plugins/mixins/validation.js',
         './plugins/mixins/globals.js',
+        './plugins/mixins/validation.js',
         './plugins/forms/index.js',
     ],
 

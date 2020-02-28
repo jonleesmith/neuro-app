@@ -1,8 +1,10 @@
 <template>
-	<section class="section">
+	<section class="max-w-5xl mx-auto">
         <div class="flex mb-6 items-center">
             <h1 class="flex-1">Collections</h1>
-            <nuxt-link :to="{ query: { action: 'create' } }" class="btn bg-primary text-white">Create Collection</nuxt-link>
+            <nuxt-link :to="{ query: { action: 'create' } }" class="btn bg-indigo-500 text-white">
+                Create Collection
+            </nuxt-link>
         </div>
 		<ElementIndex :controller="collection" :actions="false" :search="false">
             <div slot="name" slot-scope="{ element }">

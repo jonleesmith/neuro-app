@@ -1,7 +1,7 @@
 <template>
-	<header class="bg-white clearfix flex text-center shadow py-3">
+	<header class="bg-white clearfix flex text-center shadow">
 		<div class="flex">
-            <div class="flex items-center">
+            <div class="flex items-center w-1/3 bg-gray-900">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500 feather feather-menu mr-2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </div>

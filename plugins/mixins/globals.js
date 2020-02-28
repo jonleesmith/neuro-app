@@ -1,5 +1,7 @@
 
 import Vue from 'vue'
+import { mixin as clickaway } from 'vue-clickaway';
+
 import { mapState, mapActions } from 'vuex'
 
 import AppHeader from '~/components/Layout/AppHeader'
@@ -15,14 +17,21 @@ Vue.component('DropdownSelect', DropdownSelect)
 const Globals = {
 	install (Vue, options)
 	{
+        Vue.mixin(clickaway)
 		Vue.mixin({
 			computed: {
-                ...mapState({
-                    sites: 'getSites',
-                    site: 'getSite',
-                    authenticated: 'auth/loggedIn',
-                    user: 'auth/user',
-                })
+                user() {
+                    return this.$store.state.auth.user
+                },
+                authenticated() {
+                    return this.$store.state.auth.loggedIn
+                },
+                projects() {
+                    return this.user.projects
+                },
+                project() {
+                    return this.user.projects[0]
+                },
 			}
 		})
 	}
